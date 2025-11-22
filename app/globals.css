@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Hide gauge pointer/needle */
+svg[class*="gauge"] path[class*="pointer"],
+svg[class*="gauge"] g[class*="pointer"],
+svg[class*="gauge"] circle[class*="pointer"] {
+  display: none !important;
+}
