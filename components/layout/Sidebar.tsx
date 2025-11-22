@@ -21,7 +21,7 @@ const otherItems = [
 export function Sidebar() {
   const [activeItem, setActiveItem] = useState("Dashboard");
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 h-screen flex flex-col flex-shrink-0">
+    <aside className="hidden md:flex w-64 bg-white border-r border-gray-200 h-screen flex-col flex-shrink-0">
       {/* logo section */}
       <div className="p-6 pb-4">
         <div className="flex items-center justify-between">
@@ -34,8 +34,8 @@ export function Sidebar() {
               className="flex-shrink-0"
             />
             <div>
-              <div className="font-bold text-gray-900" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.006em', fontFamily: 'Inter', fontWeight: 700 }}>Apex</div>
-              <div className="text-gray-500" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400 }}>Finance & Banking</div>
+              <div style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>Apex</div>
+              <div style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>Finance & Banking</div>
             </div>
           </div>
           <button className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors border border-gray-200">
@@ -78,10 +78,10 @@ export function Sidebar() {
                   onClick={() => setActiveItem(item.name)}
                   className={`w-full flex items-center justify-between space-x-3 px-3 py-2.5 rounded-lg transition-colors relative ${
                     isActive
-                      ? "bg-blue-50 font-bold"
-                      : "text-gray-700 hover:bg-gray-50"
+                      ? "bg-blue-50"
+                      : "hover:bg-gray-50"
                   }`}
-                  style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.006em', fontFamily: 'Inter', fontWeight: isActive ? 700 : 500 }}
+                  style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500 }}
                 >
                   <div className="flex items-center space-x-3 flex-1">
                     {/* Blue bar indicator for active item */}
@@ -145,7 +145,7 @@ export function Sidebar() {
                     ) : (
                       <span>{item.icon}</span>
                     )}
-                    <span className={isActive ? "text-gray-700" : ""}>{item.name}</span>
+                    <span style={{ color: isActive ? '#0E121B' : '#525866' }}>{item.name}</span>
                   </div>
                   {/* Right chevron for active item */}
                   {isActive && (
@@ -182,10 +182,10 @@ export function Sidebar() {
                   onClick={() => setActiveItem(item.name)}
                   className={`w-full flex items-center justify-between space-x-3 px-3 py-2.5 rounded-lg transition-colors relative ${
                     isActive
-                      ? "bg-blue-50 font-bold"
-                      : "text-gray-700 hover:bg-gray-50"
+                      ? "bg-blue-50"
+                      : "hover:bg-gray-50"
                   }`}
-                  style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.006em', fontFamily: 'Inter', fontWeight: isActive ? 700 : 500 }}
+                  style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500 }}
                 >
                   <div className="flex items-center space-x-3 flex-1">
                     {/* Blue bar indicator for active item */}
@@ -213,7 +213,7 @@ export function Sidebar() {
                     ) : (
                       <span>{item.icon}</span>
                     )}
-                    <span className={isActive ? "text-gray-700" : ""}>{item.name}</span>
+                    <span style={{ color: isActive ? '#0E121B' : '#525866' }}>{item.name}</span>
                   </div>
                   {/* Right chevron for active item */}
                   {isActive && (
@@ -252,7 +252,7 @@ export function Sidebar() {
           />
           <div className="flex-1 min-w-0">
             <div className="flex items-center space-x-1">
-              <div className="font-bold text-gray-900 truncate" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.006em', fontFamily: 'Inter', fontWeight: 700 }}>
+              <div className="truncate" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
                 Arthur Taylor
               </div>
               <Image
@@ -263,7 +263,7 @@ export function Sidebar() {
                 className="flex-shrink-0"
               />
             </div>
-            <div className="text-gray-500 truncate" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400 }}>
+            <div className="truncate" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
               arthur@alignui.com
             </div>
           </div>

@@ -13,46 +13,43 @@ import { CreditScore } from "@/components/dashboard/CreditScore";
 
 export default function Home() {
   return (
-    <div className="h-screen bg-gray-50 overflow-hidden flex">
+    <div className="min-h-screen md:h-screen bg-gray-50 flex flex-col md:flex-row">
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
-        <main className="flex-1 overflow-hidden p-3">
-          <div className="h-full">
-            {/* 3 Column Grid Layout - All 7 Cards */}
-            <div className="grid grid-cols-3 gap-3 w-full h-full">
-              {/* COLUMN 1: My Cards + Recent Transactions (equal heights) */}
-              <div className="flex flex-col gap-3 h-full">
-                <div className="flex-1 min-h-0">
+        <main className="flex-1 overflow-y-auto md:overflow-hidden p-3">
+          <div className="h-full md:h-full">
+            {/* Responsive Grid Layout - 1 column on mobile, 2 columns on tablet, 3 columns on desktop */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-full h-full md:h-full">
+              {/* COLUMN 1: My Cards + Recent Transactions */}
+              <div className="flex flex-col gap-3 h-full md:h-full">
+                <div className="flex-1 min-h-[400px] md:min-h-0">
                   <MyCards />
                 </div>
-                <div className="flex-1 min-h-0">
+                <div className="flex-1 min-h-[400px] md:min-h-0">
                   <RecentTransactions />
                 </div>
               </div>
 
-              {/* COLUMN 2: Spending Summary + My Subscriptions (equal heights) */}
-              <div className="flex flex-col gap-3 h-full">
-                <div className="flex-1 min-h-0">
+              {/* COLUMN 2: Spending Summary + My Subscriptions */}
+              <div className="flex flex-col gap-3 h-full md:h-full">
+                <div className="flex-1 min-h-[400px] md:min-h-0">
                   <SpendingSummary />
                 </div>
-                <div className="flex-1 min-h-0">
+                <div className="flex-1 min-h-[400px] md:min-h-0">
                   <Subscriptions />
                 </div>
               </div>
 
-              {/* COLUMN 3: Total Expenses + Exchange + Credit Score (1:2:1 ratio) */}
-              <div className="flex flex-col gap-3 h-full">
-                {/* Total Expenses - 1 part */}
-                <div className="flex-[1] min-h-0">
+              {/* COLUMN 3: Total Expenses + Exchange + Credit Score */}
+              <div className="flex flex-col gap-3 h-full md:h-full">
+                <div className="flex-[1] min-h-[200px] md:min-h-0">
                   <TotalExpenses />
                 </div>
-                {/* Exchange - 2 parts (double height) */}
-                <div className="flex-[2] min-h-0">
+                <div className="flex-[2] min-h-[400px] md:min-h-0">
                   <Exchange />
                 </div>
-                {/* Credit Score - 1 part */}
-                <div className="flex-[1] min-h-0">
+                <div className="flex-[1] min-h-[200px] md:min-h-0">
                   <CreditScore />
                 </div>
               </div>

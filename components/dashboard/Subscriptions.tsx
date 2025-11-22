@@ -51,14 +51,14 @@ export function Subscriptions() {
             height={20}
             className="shrink-0"
           />
-          <h2 className="text-lg font-semibold text-gray-900">
+          <h2 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
                 My Subscriptions
               </h2>
         </div>
         <button
           onClick={handleSeeAll}
-          className="px-3 py-1.5 font-medium text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
-          style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.006em', fontFamily: 'Inter', fontWeight: 500 }}
+          className="px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+          style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}
         >
           See All
         </button>
@@ -102,44 +102,48 @@ export function Subscriptions() {
       </div>
 
       {/* subscriptions list */}
-      <div className="space-y-1.5 flex-1 overflow-y-auto min-h-0">
+      <div className="flex-1 overflow-y-auto min-h-0">
         {subscriptions.map((sub, idx) => (
-          <div
-            key={idx}
-            className="flex items-center justify-between p-1.5 hover:bg-gray-50 rounded-lg transition-colors"
-          >
-            <div className="flex items-center space-x-2 flex-1">
-              <div className="w-7 h-7 border border-gray-200 rounded-full flex items-center justify-center overflow-hidden bg-white">
-                <Image
-                  src={sub.logo}
-                  alt={sub.name}
-                  width={20}
-                  height={20}
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex-1">
-                <div className="font-medium" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>{sub.name}</div>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-medium" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.006em', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>{sub.amount}</span>
-                  <span className="font-medium" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#99A0AE' }}>{sub.frequency}</span>
+          <React.Fragment key={idx}>
+            <div
+              className="flex items-center justify-between p-1.5 hover:bg-gray-50 rounded-lg transition-colors"
+            >
+              <div className="flex items-center space-x-2 flex-1">
+                <div className="w-7 h-7 border-2 border-gray-200 rounded-full flex items-center justify-center overflow-hidden bg-white">
+                  <Image
+                    src={sub.logo}
+                    alt={sub.name}
+                    width={20}
+                    height={20}
+                    className="object-contain"
+                  />
+                </div>
+                <div className="flex-1">
+                  <div className="font-medium" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>{sub.name}</div>
+                  <div className="flex items-baseline gap-1">
+                    <span style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>{sub.amount}</span>
+                    <span style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#99A0AE' }}>{sub.frequency}</span>
+                  </div>
                 </div>
               </div>
+              <div className="flex items-center space-x-3">
+                <span
+                  className="px-2 py-1 text-xs font-medium rounded-full"
+                  style={{ backgroundColor: sub.statusColor, color: sub.statusTextColor }}
+                >
+                  {sub.status}
+                </span>
+                <button className="text-gray-400 hover:text-gray-600 flex flex-col items-center justify-center">
+                  <span className="w-1 h-1 bg-current rounded-full mb-0.5"></span>
+                  <span className="w-1 h-1 bg-current rounded-full mb-0.5"></span>
+                  <span className="w-1 h-1 bg-current rounded-full"></span>
+                </button>
+              </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <span
-                className="px-2 py-1 text-xs font-medium rounded-full"
-                style={{ backgroundColor: sub.statusColor, color: sub.statusTextColor }}
-              >
-                {sub.status}
-              </span>
-              <button className="text-gray-400 hover:text-gray-600 flex flex-col items-center justify-center">
-                <span className="w-1 h-1 bg-current rounded-full mb-0.5"></span>
-                <span className="w-1 h-1 bg-current rounded-full mb-0.5"></span>
-                <span className="w-1 h-1 bg-current rounded-full"></span>
-              </button>
-            </div>
-          </div>
+            {idx < subscriptions.length - 1 && (
+              <div className="h-px" style={{ backgroundColor: '#E1E4EA' }}></div>
+            )}
+          </React.Fragment>
         ))}
       </div>
     </div>

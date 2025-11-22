@@ -58,14 +58,14 @@ export function RecentTransactions() {
             height={20}
             className="flex-shrink-0"
           />
-          <h2 className="text-lg font-semibold text-gray-900">
+          <h2 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
             Recent Transactions
           </h2>
         </div>
         <button
           onClick={handleSeeAll}
-          className="px-3 py-1.5 font-medium text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
-          style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.006em', fontFamily: 'Inter', fontWeight: 500 }}
+          className="px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+          style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}
         >
           See All
         </button>
@@ -73,19 +73,27 @@ export function RecentTransactions() {
 
       {/* tabs */}
       <div className="flex space-x-1 mb-2 bg-gray-50 p-1 rounded-lg">
-        {["Incoming", "Outgoing", "Pending"].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`flex-1 py-2 text-sm font-medium rounded-md transition-colors ${
-              activeTab === tab
-                ? "bg-white text-gray-900 shadow-sm"
-                : "text-gray-600 hover:text-gray-900"
-            }`}
-          >
-            {tab}
-          </button>
-        ))}
+        {["Incoming", "Outgoing", "Pending"].map((tab) => {
+          const isSelected = activeTab === tab;
+          return (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className="flex-1 py-2 rounded-md transition-colors"
+              style={{ 
+                fontSize: '12px', 
+                lineHeight: '16px', 
+                letterSpacing: '0%', 
+                fontFamily: 'Inter', 
+                fontWeight: 500, 
+                color: isSelected ? '#0E121B' : '#99A0AE',
+                backgroundColor: isSelected ? '#FFFFFF' : 'transparent'
+              }}
+            >
+              {tab}
+            </button>
+          );
+        })}
       </div>
 
       {/* transactions list */}
@@ -97,7 +105,7 @@ export function RecentTransactions() {
           >
             <div className="flex items-center space-x-2 flex-1 min-w-0">
               <div 
-                className={`w-7 h-7 border border-gray-200 rounded-full flex items-center justify-center flex-shrink-0 ${
+                className={`w-7 h-7 border-2 border-gray-200 rounded-full flex items-center justify-center flex-shrink-0 ${
                   tx.title === "Rental Income" ? "" : "bg-white"
                 }`}
                 style={tx.title === "Rental Income" ? { backgroundColor: '#E0FAEC' } : {}}
@@ -141,17 +149,17 @@ export function RecentTransactions() {
                 )}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="font-medium truncate" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
+                <div className="truncate" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
                   {tx.title}
                 </div>
-                <div className="text-xs text-gray-500 truncate">
+                <div className="truncate" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
                   {tx.description}
                 </div>
               </div>
             </div>
             <div className="flex items-center space-x-2">
               <div className="text-right">
-                <div className="font-semibold text-gray-900">
+                <div style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
                   ${tx.amount.toFixed(2)}
                 </div>
                 <div className="text-xs text-gray-400">{tx.date}</div>

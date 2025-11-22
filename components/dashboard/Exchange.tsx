@@ -21,7 +21,7 @@ export function Exchange() {
             height={20}
             className="shrink-0"
           />
-          <h2 className="text-lg font-semibold text-gray-900">Exchange</h2>
+          <h2 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>Exchange</h2>
         </div>
         <button className="px-3 py-1.5 text-sm font-medium text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
           Currencies
@@ -43,9 +43,11 @@ export function Exchange() {
             />
             <div className="text-sm font-semibold text-gray-900 flex items-center space-x-1">
               <span>USD</span>
-              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
+              <div className="w-5 h-5 border border-gray-200 rounded-full flex items-center justify-center">
+                <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -71,9 +73,11 @@ export function Exchange() {
             />
             <div className="text-sm font-semibold text-gray-900 flex items-center space-x-1">
               <span>EUR</span>
-              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
+              <div className="w-5 h-5 border border-gray-200 rounded-full flex items-center justify-center">
+                <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>

@@ -11,28 +11,28 @@ export function Header() {
   };
 
   return (
-    <header className="h-14 bg-gray-50 flex items-center justify-between px-6 flex-shrink-0">
+    <header className="h-14 bg-gray-50 flex items-center justify-between px-3 md:px-6 flex-shrink-0">
       {/* greeting */}
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-2 md:space-x-3 flex-1 min-w-0">
         <Image
           src="/avatar.png"
           alt="Arthur Taylor"
           width={40}
           height={40}
-          className="w-10 h-10 rounded-full flex-shrink-0 object-cover"
+          className="w-8 h-8 md:w-10 md:h-10 rounded-full flex-shrink-0 object-cover"
         />
-        <div className="text-sm">
-          <div className="font-bold text-gray-900" style={{ fontSize: '18px', lineHeight: '24px', letterSpacing: '-0.015em', fontFamily: 'Inter', fontWeight: 700 }}>Arthur Taylor</div>
-          <div className="text-gray-600" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.006em', fontFamily: 'Inter', fontWeight: 400 }}>
-            Welcome back to Apex <span className="text-sm">👋</span>
+        <div className="text-sm min-w-0">
+          <div className="truncate" style={{ fontSize: '16px', lineHeight: '20px', letterSpacing: '-1.5%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>Arthur Taylor</div>
+          <div className="hidden sm:block" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
+            Welcome back to Apex 👋
           </div>
         </div>
       </div>
 
       {/* actions */}
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-2 md:space-x-3 flex-shrink-0">
         {/* search */}
-        <button className="w-9 h-9 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+        <button className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
           <Image
             src="/search.svg"
             alt="Search"
@@ -43,7 +43,7 @@ export function Header() {
         </button>
 
         {/* notifications */}
-        <button className="w-9 h-9 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors relative">
+        <button className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors relative">
           <Image
             src="/bell.svg"
             alt="Notifications"
@@ -57,10 +57,11 @@ export function Header() {
         {/* move money button */}
         <button
           onClick={handleMoveMoney}
-          className="bg-blue-600 text-white px-3 py-1.5 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center space-x-1.5"
-          style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.006em', fontFamily: 'Inter', fontWeight: 500 }}
+          className="bg-blue-600 px-2 py-1 md:px-3 md:py-1.5 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-1 md:space-x-1.5"
+          style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#FFFFFF' }}
         >
-          <span>Move Money</span>
+          <span className="hidden sm:inline">Move Money</span>
+          <span className="sm:hidden">Move</span>
           <Image
             src="/arrow-right-up.svg"
             alt="Arrow"

@@ -30,7 +30,7 @@ export function SpendingSummary() {
             height={20}
             className="shrink-0"
           />
-          <h2 className="text-lg font-semibold text-gray-900">
+          <h2 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
             Spending Summary
           </h2>
         </div>
@@ -91,8 +91,14 @@ export function SpendingSummary() {
           <p className="text-xs text-gray-500">
             Your weekly spending limit is $2000.
           </p>
-          <button className="w-4 h-4 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs hover:bg-gray-300 ml-2">
-            i
+          <button className="w-4 h-4 flex items-center justify-center ml-2 hover:opacity-70 transition-opacity">
+            <Image
+              src="/icon.svg"
+              alt="Info"
+              width={16}
+              height={16}
+              className="shrink-0"
+            />
           </button>
         </div>
       </div>
