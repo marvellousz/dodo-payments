@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { apiQueue, QueueJob } from "@/lib/apiQueue";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
+import Image from "next/image";
 
 export default function QueueDemo() {
   const [message, setMessage] = useState("");
@@ -47,44 +46,68 @@ export default function QueueDemo() {
   const failedJobs = jobs.filter((j) => j.status === "failed");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-8">
-      <div className="max-w-6xl mx-auto space-y-6">
-        {/* Header */}
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-gray-900">
-            API Queue System Demo
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="border-b border-gray-200 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-3">
+              <Image
+                src="/dodo.svg"
+                alt="Dodo Payments"
+                width={32}
+                height={32}
+                className="shrink-0"
+              />
+              <span style={{ fontSize: '18px', lineHeight: '24px', letterSpacing: '-1.5%', fontFamily: 'Inter', fontWeight: 600, color: '#0E121B' }}>
+                Dodo Payments
+              </span>
+            </div>
+            <nav className="hidden md:flex items-center space-x-6">
+              <a href="/" className="text-sm" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}>
+                Dashboard
+              </a>
+              <a href="/queue-demo" className="text-sm" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
+                Queue Demo
+              </a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Hero Section */}
+        <div className="text-center mb-12">
+          <h1 style={{ fontSize: '48px', lineHeight: '56px', letterSpacing: '-2%', fontFamily: 'Inter', fontWeight: 700, color: '#0E121B', marginBottom: '16px' }}>
+            API Queue System
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p style={{ fontSize: '18px', lineHeight: '28px', letterSpacing: '-0.5%', fontFamily: 'Inter', fontWeight: 400, color: '#525866', maxWidth: '640px', margin: '0 auto' }}>
             Experience a production-ready API queue system with sequential processing,
             2-second delays, and rate limiting (5 requests per minute per IP).
           </p>
         </div>
 
         {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <StatCard
             label="Total Requests"
             value={stats.total}
-            icon="📊"
-            color="blue"
+            color="#0E121B"
           />
           <StatCard
             label="Completed"
             value={stats.completed}
-            icon="✅"
-            color="green"
+            color="#10B981"
           />
           <StatCard
             label="Failed"
             value={stats.failed}
-            icon="❌"
-            color="red"
+            color="#EF4444"
           />
           <StatCard
             label="Pending"
             value={stats.pending}
-            icon="⏳"
-            color="yellow"
+            color="#F59E0B"
           />
         </div>
 
@@ -92,42 +115,39 @@ export default function QueueDemo() {
           {/* Left Column - Input Form */}
           <div className="lg:col-span-1 space-y-6">
             {/* Add Request Card */}
-            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 4v16m8-8H4"
-                    />
-                  </svg>
-                </div>
-                <h2 className="text-xl font-semibold text-gray-900">
-                  Add Request
-                </h2>
-              </div>
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <h2 style={{ fontSize: '20px', lineHeight: '28px', letterSpacing: '-1%', fontFamily: 'Inter', fontWeight: 600, color: '#0E121B', marginBottom: '24px' }}>
+                Add Request
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                  label="Message"
-                  placeholder="Enter your message here..."
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                />
-                <Button type="submit" variant="primary" className="w-full">
+                <div>
+                  <label htmlFor="message" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B', display: 'block', marginBottom: '8px' }}>
+                    Message
+                  </label>
+                  <input
+                    id="message"
+                    type="text"
+                    placeholder="Enter your message here..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all"
+                    style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#0E121B' }}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full px-4 py-2.5 rounded-lg transition-colors"
+                  style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#FFFFFF', backgroundColor: '#0E121B' }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1a1f2e'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0E121B'}
+                >
                   Add to Queue
-                </Button>
+                </button>
               </form>
 
               {/* Quick Add Buttons */}
               <div className="mt-6 pt-6 border-t border-gray-200">
-                <p className="text-sm font-medium text-gray-700 mb-3">
+                <p style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 500, color: '#525866', marginBottom: '12px' }}>
                   Quick Actions:
                 </p>
                 <div className="grid grid-cols-2 gap-2">
@@ -137,62 +157,62 @@ export default function QueueDemo() {
                     "Move Money",
                     "Add Card",
                   ].map((msg) => (
-                    <Button
+                    <button
                       key={msg}
-                      variant="secondary"
-                      size="sm"
                       onClick={() => handleQuickAdd(msg)}
-                      className="text-xs"
+                      className="px-3 py-2 border border-gray-200 rounded-lg transition-colors text-left"
+                      style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#F9FAFB';
+                        e.currentTarget.style.borderColor = '#E5E7EB';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                        e.currentTarget.style.borderColor = '#E5E7EB';
+                      }}
                     >
                       {msg}
-                    </Button>
+                    </button>
                   ))}
                 </div>
               </div>
             </div>
 
             {/* Info Card */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-blue-900">
-                  How it works
-                </h3>
-              </div>
-              <ul className="text-sm text-blue-800 space-y-2">
-                <li className="flex items-start space-x-2">
-                  <span className="text-blue-500 mt-0.5">•</span>
-                  <span>Requests are queued sequentially</span>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 600, color: '#0E121B', marginBottom: '16px' }}>
+                How it works
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex items-start space-x-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
+                  <span style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
+                    Requests are queued sequentially
+                  </span>
                 </li>
-                <li className="flex items-start space-x-2">
-                  <span className="text-blue-500 mt-0.5">•</span>
-                  <span>One request processes at a time</span>
+                <li className="flex items-start space-x-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
+                  <span style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
+                    One request processes at a time
+                  </span>
                 </li>
-                <li className="flex items-start space-x-2">
-                  <span className="text-blue-500 mt-0.5">•</span>
-                  <span>2-second delay per request</span>
+                <li className="flex items-start space-x-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
+                  <span style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
+                    2-second delay per request
+                  </span>
                 </li>
-                <li className="flex items-start space-x-2">
-                  <span className="text-blue-500 mt-0.5">•</span>
-                  <span>Rate limit: 5/min per IP</span>
+                <li className="flex items-start space-x-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
+                  <span style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
+                    Rate limit: 5/min per IP
+                  </span>
                 </li>
-                <li className="flex items-start space-x-2">
-                  <span className="text-blue-500 mt-0.5">•</span>
-                  <span>HTTP 429 on limit exceeded</span>
+                <li className="flex items-start space-x-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
+                  <span style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
+                    HTTP 429 on limit exceeded
+                  </span>
                 </li>
               </ul>
             </div>
@@ -202,12 +222,12 @@ export default function QueueDemo() {
           <div className="lg:col-span-2 space-y-6">
             {/* Currently Processing */}
             {processingJob && (
-              <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl p-6 text-white shadow-lg transform transition-all duration-300 animate-pulse">
+              <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl p-6 text-white">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
                       <svg
-                        className="w-6 h-6 animate-spin"
+                        className="w-5 h-5 animate-spin"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -221,38 +241,37 @@ export default function QueueDemo() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold">Processing</h3>
-                      <p className="text-blue-100 text-sm">
+                      <h3 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 600, color: '#FFFFFF', marginBottom: '4px' }}>
+                        Processing
+                      </h3>
+                      <p style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: 'rgba(255, 255, 255, 0.7)' }}>
                         {processingJob.message}
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold">
+                    <div style={{ fontSize: '24px', lineHeight: '32px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 600, color: '#FFFFFF' }}>
                       {Math.round((Date.now() - processingJob.timestamp) / 1000)}s
                     </div>
-                    <div className="text-blue-100 text-xs">elapsed</div>
+                    <div style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: 'rgba(255, 255, 255, 0.6)' }}>
+                      elapsed
+                    </div>
                   </div>
                 </div>
-                <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
-                  <div className="bg-white h-2 rounded-full animate-pulse" style={{ width: '60%' }}></div>
+                <div className="w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
+                  <div className="bg-white h-1.5 rounded-full transition-all duration-300" style={{ width: '60%' }}></div>
                 </div>
               </div>
             )}
 
             {/* Pending Queue */}
             {pendingJobs.length > 0 && (
-              <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg">
+              <div className="bg-white rounded-xl border border-gray-200 p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
-                      <span className="text-yellow-600 text-lg">⏳</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      Pending Queue
-                    </h3>
-                  </div>
-                  <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">
+                  <h3 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 600, color: '#0E121B' }}>
+                    Pending Queue
+                  </h3>
+                  <span className="px-3 py-1 rounded-full" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 500, backgroundColor: '#FEF3C7', color: '#92400E' }}>
                     {pendingJobs.length} waiting
                   </span>
                 </div>
@@ -262,14 +281,16 @@ export default function QueueDemo() {
                       key={job.id}
                       className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-100 hover:bg-gray-100 transition-colors"
                     >
-                      <div className="w-6 h-6 bg-yellow-200 rounded-full flex items-center justify-center text-yellow-700 text-xs font-bold">
-                        {index + 1}
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#FEF3C7', color: '#92400E' }}>
+                        <span style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 600 }}>
+                          {index + 1}
+                        </span>
                       </div>
                       <div className="flex-1">
-                        <p className="text-sm font-medium text-gray-900">
+                        <p style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
                           {job.message}
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#99A0AE' }}>
                           Queued {new Date(job.timestamp).toLocaleTimeString()}
                         </p>
                       </div>
@@ -281,17 +302,12 @@ export default function QueueDemo() {
 
             {/* Completed Jobs */}
             {completedJobs.length > 0 && (
-              <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg">
+              <div className="bg-white rounded-xl border border-gray-200 p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                      <span className="text-green-600 text-lg">✅</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      Completed
-                    </h3>
-                  </div>
-                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                  <h3 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 600, color: '#0E121B' }}>
+                    Completed
+                  </h3>
+                  <span className="px-3 py-1 rounded-full" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 500, backgroundColor: '#D1FAE5', color: '#065F46' }}>
                     {completedJobs.length} success
                   </span>
                 </div>
@@ -299,9 +315,9 @@ export default function QueueDemo() {
                   {completedJobs.slice().reverse().map((job) => (
                     <div
                       key={job.id}
-                      className="flex items-center space-x-3 p-3 bg-green-50 rounded-lg border border-green-100 hover:bg-green-100 transition-colors"
+                      className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-100 hover:bg-gray-100 transition-colors"
                     >
-                      <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#10B981' }}>
                         <svg
                           className="w-5 h-5 text-white"
                           fill="none"
@@ -317,15 +333,15 @@ export default function QueueDemo() {
                         </svg>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900 truncate">
+                        <p style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }} className="truncate">
                           {job.message}
                         </p>
                         <div className="flex items-center space-x-2 mt-1">
-                          <p className="text-xs text-gray-500">
+                          <p style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#99A0AE' }}>
                             {job.result?.echo && `Echo: "${job.result.echo}"`}
                           </p>
-                          <span className="text-xs text-gray-400">•</span>
-                          <p className="text-xs text-gray-500">
+                          <span style={{ fontSize: '12px', color: '#E5E7EB' }}>•</span>
+                          <p style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#99A0AE' }}>
                             {new Date(job.timestamp).toLocaleTimeString()}
                           </p>
                         </div>
@@ -338,17 +354,12 @@ export default function QueueDemo() {
 
             {/* Failed Jobs */}
             {failedJobs.length > 0 && (
-              <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg">
+              <div className="bg-white rounded-xl border border-gray-200 p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
-                      <span className="text-red-600 text-lg">❌</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      Failed
-                    </h3>
-                  </div>
-                  <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">
+                  <h3 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 600, color: '#0E121B' }}>
+                    Failed
+                  </h3>
+                  <span className="px-3 py-1 rounded-full" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 500, backgroundColor: '#FEE2E2', color: '#991B1B' }}>
                     {failedJobs.length} errors
                   </span>
                 </div>
@@ -356,9 +367,9 @@ export default function QueueDemo() {
                   {failedJobs.slice().reverse().map((job) => (
                     <div
                       key={job.id}
-                      className="flex items-start space-x-3 p-3 bg-red-50 rounded-lg border border-red-100 hover:bg-red-100 transition-colors"
+                      className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-100 hover:bg-gray-100 transition-colors"
                     >
-                      <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: '#EF4444' }}>
                         <svg
                           className="w-5 h-5 text-white"
                           fill="none"
@@ -374,13 +385,13 @@ export default function QueueDemo() {
                         </svg>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900">
+                        <p style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
                           {job.message}
                         </p>
-                        <p className="text-xs text-red-600 mt-1">
+                        <p style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#DC2626', marginTop: '4px' }}>
                           {job.error || "Unknown error"}
                         </p>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#99A0AE', marginTop: '4px' }}>
                           {new Date(job.timestamp).toLocaleTimeString()}
                         </p>
                       </div>
@@ -392,7 +403,7 @@ export default function QueueDemo() {
 
             {/* Empty State */}
             {jobs.length === 0 && (
-              <div className="bg-white rounded-2xl p-12 border border-gray-200 shadow-lg text-center">
+              <div className="bg-white rounded-xl border border-gray-200 p-12 text-center">
                 <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
                     className="w-8 h-8 text-gray-400"
@@ -408,17 +419,17 @@ export default function QueueDemo() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 style={{ fontSize: '18px', lineHeight: '28px', letterSpacing: '-1.5%', fontFamily: 'Inter', fontWeight: 600, color: '#0E121B', marginBottom: '8px' }}>
                   No requests yet
                 </h3>
-                <p className="text-gray-500">
+                <p style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
                   Add a request to see the queue system in action
                 </p>
               </div>
             )}
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
@@ -426,32 +437,22 @@ export default function QueueDemo() {
 function StatCard({
   label,
   value,
-  icon,
   color,
 }: {
   label: string;
   value: number;
-  icon: string;
-  color: "blue" | "green" | "red" | "yellow";
+  color: string;
 }) {
-  const colorClasses = {
-    blue: "bg-blue-100 text-blue-600 border-blue-200",
-    green: "bg-green-100 text-green-600 border-green-200",
-    red: "bg-red-100 text-red-600 border-red-200",
-    yellow: "bg-yellow-100 text-yellow-600 border-yellow-200",
-  };
-
   return (
-    <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+    <div className="bg-white rounded-xl border border-gray-200 p-6">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm text-gray-600 mb-1">{label}</p>
-          <p className="text-2xl font-bold text-gray-900">{value}</p>
-        </div>
-        <div
-          className={`w-12 h-12 rounded-lg flex items-center justify-center text-2xl border ${colorClasses[color]}`}
-        >
-          {icon}
+          <p style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#525866', marginBottom: '8px' }}>
+            {label}
+          </p>
+          <p style={{ fontSize: '32px', lineHeight: '40px', letterSpacing: '-0.5%', fontFamily: 'Inter', fontWeight: 600, color: color }}>
+            {value}
+          </p>
         </div>
       </div>
     </div>
