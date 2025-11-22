@@ -106,7 +106,7 @@ export function Subscriptions() {
         {subscriptions.map((sub, idx) => (
           <React.Fragment key={idx}>
             <div
-              className="flex items-center justify-between p-1.5 hover:bg-gray-50 rounded-lg transition-colors"
+              className="flex items-center justify-between p-1.5 pb-3 hover:bg-gray-50 rounded-lg transition-colors"
             >
               <div className="flex items-center space-x-2 flex-1">
                 <div className="w-7 h-7 border-2 border-gray-200 rounded-full flex items-center justify-center overflow-hidden bg-white">

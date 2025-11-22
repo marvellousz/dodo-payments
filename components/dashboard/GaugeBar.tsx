@@ -113,7 +113,7 @@ const GaugeBar: React.FC<GaugeBarProps> = ({
           <div className="text-gray-500 text-xs font-medium tracking-wider mb-1 uppercase">
             {label}
           </div>
-          <div className="text-center" style={{ fontSize: '24px', lineHeight: '32px', letterSpacing: '0%', fontFamily: 'Inter Display', fontWeight: 500, color: '#0E121B' }}>
+          <div className="text-center" style={{ fontSize: '24px', lineHeight: '32px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
             ${value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </div>
         </div>

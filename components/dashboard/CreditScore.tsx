@@ -7,7 +7,7 @@ export function CreditScore() {
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-3 h-full w-full flex flex-col">
           {/* header */}
-          <div className="flex items-center justify-between mb-2 pb-2 border-b border-gray-100">
+          <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
             <div className="flex items-center space-x-2">
               <Image
                 src="/credit.svg"
@@ -24,13 +24,13 @@ export function CreditScore() {
       </div>
 
       {/* score */}
-      <div className="mb-2 flex-1">
+      <div className="mb-1 flex-1">
         <div className="flex items-center justify-between mb-1">
           <div>
             <div className="mb-0.5" style={{ fontSize: '18px', lineHeight: '24px', letterSpacing: '-1.5%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
               Your <span style={{ color: '#0E121B' }}>credit score</span> is <span style={{ fontWeight: 500, color: '#0E121B' }}>710</span>
             </div>
-            <div style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
+            <div className="mb-0" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
               This score is considered to be Excellent.
             </div>
           </div>
@@ -47,7 +47,7 @@ export function CreditScore() {
       </div>
 
       {/* bar graph */}
-      <div className="flex items-end space-x-0.5 h-6 mt-auto">
+      <div className="flex items-end space-x-0.5 h-6">
         {Array.from({ length: 60 }).map((_, i) => (
           <div
             key={i}

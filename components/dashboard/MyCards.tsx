@@ -101,7 +101,7 @@ export function MyCards() {
 
             <div>
               <div style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }} className="mb-1">Savings Card</div>
-              <div style={{ fontSize: '32px', lineHeight: '40px', letterSpacing: '-0.5%', fontFamily: 'Inter Display', fontWeight: 500, color: '#0E121B' }}>$16,058.94</div>
+              <div style={{ fontSize: '32px', lineHeight: '40px', letterSpacing: '-0.5%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>$16,058.94</div>
             </div>
           </div>
 
@@ -123,26 +123,31 @@ export function MyCards() {
 
       {/* tabs bar */}
       <div className="mb-2 shrink-0">
-        <div className="flex space-x-1 bg-gray-50 p-1 rounded-lg">
-          {["Daily", "Weekly", "Monthly"].map((tab) => {
+        <div className="flex bg-gray-50 rounded-lg overflow-hidden">
+          {["Daily", "Weekly", "Monthly"].map((tab, index) => {
             const isSelected = selectedTab === tab;
             return (
-              <button
-                key={tab}
-                onClick={() => setSelectedTab(tab)}
-                className="flex-1 py-2 rounded-md transition-colors"
-                style={{ 
-                  fontSize: '12px', 
-                  lineHeight: '16px', 
-                  letterSpacing: '0%', 
-                  fontFamily: 'Inter', 
-                  fontWeight: 500, 
-                  color: isSelected ? '#0E121B' : '#525866',
-                  backgroundColor: isSelected ? '#E1E4EA' : 'transparent'
-                }}
-              >
-                {tab}
-              </button>
+              <React.Fragment key={tab}>
+                <button
+                  onClick={() => setSelectedTab(tab)}
+                  className="flex-1 py-2 transition-colors relative"
+                  style={{ 
+                    fontSize: '12px', 
+                    lineHeight: '16px', 
+                    letterSpacing: '0%', 
+                    fontFamily: 'Inter', 
+                    fontWeight: 500, 
+                    color: isSelected ? '#0E121B' : '#525866',
+                    backgroundColor: isSelected ? '#E1E4EA' : 'transparent',
+                    borderRadius: index === 0 ? '0.5rem 0 0 0.5rem' : index === 2 ? '0 0.5rem 0.5rem 0' : '0'
+                  }}
+                >
+                  {tab}
+                </button>
+                {index < 2 && (
+                  <div className="w-px bg-gray-200 self-stretch"></div>
+                )}
+              </React.Fragment>
             );
           })}
         </div>

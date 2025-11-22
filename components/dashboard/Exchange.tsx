@@ -51,6 +51,9 @@ export function Exchange() {
             </div>
           </div>
 
+          {/* Vertical line before double arrow */}
+          <div className="w-px h-6 bg-gray-200"></div>
+
           {/* Double arrow */}
           <div className="flex items-center">
             <Image
@@ -61,6 +64,9 @@ export function Exchange() {
               className="shrink-0"
             />
           </div>
+
+          {/* Vertical line after double arrow */}
+          <div className="w-px h-6 bg-gray-200"></div>
 
           {/* To */}
           <div className="flex items-center space-x-2">
@@ -81,28 +87,31 @@ export function Exchange() {
             </div>
           </div>
         </div>
+        
+        {/* Horizontal line below currency selectors */}
+        <div className="h-px bg-gray-200 mx-3"></div>
 
         {/* Amount and Available balance - centered */}
         <div className="flex-1 flex flex-col justify-center items-center px-3">
           {/* Amount */}
-          <div className="mb-2 text-center" style={{ fontSize: '32px', lineHeight: '40px', letterSpacing: '-0.5%', fontFamily: 'Inter Display', fontWeight: 500, color: '#0E121B' }}>$100.00</div>
+          <div className="mb-2 text-center" style={{ fontSize: '32px', lineHeight: '40px', letterSpacing: '-0.5%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>$100.00</div>
 
           {/* Available balance */}
           <div className="text-center" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
-            Available : <span style={{ fontWeight: 500, color: '#525866' }}>$16,058.94</span>
+            Available : <span style={{ fontWeight: 500, color: '#0E121B' }}>$16,058.94</span>
           </div>
         </div>
 
         {/* Exchange rate bar at bottom */}
         <div className="bg-gray-50 rounded-b-lg px-3 py-2 border-t border-gray-100">
           <div className="text-center" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
-            1 USD = <span style={{ fontWeight: 500 }}>0.94 EUR</span>
+            1 USD = <span style={{ fontWeight: 500, color: '#0E121B' }}>0.94 EUR</span>
           </div>
         </div>
       </div>
 
       {/* fees breakdown */}
-      <div className="space-y-1 mb-2 shrink-0">
+      <div className="space-y-2 mb-2 shrink-0">
         <div className="flex justify-between" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400 }}>
           <span className="text-gray-600">Tax (2%)</span>
           <span className="text-gray-900" style={{ fontWeight: 500 }}>$2.00</span>

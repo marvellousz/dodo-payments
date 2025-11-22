@@ -37,10 +37,10 @@ export function TotalExpenses() {
           Total Expenses
         </h2>
         <div className="flex items-center space-x-2">
-          <div style={{ fontSize: '32px', lineHeight: '40px', letterSpacing: '-0.5%', fontFamily: 'Inter Display', fontWeight: 500, color: '#0E121B' }}>
+          <div style={{ fontSize: '32px', lineHeight: '40px', letterSpacing: '-0.5%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>
             $6,240.28
           </div>
-          <span className="px-2 py-1 rounded-full text-sm font-medium" style={{ backgroundColor: '#FFF1EB', color: '#EA580C' }}>-2%</span>
+          <span className="px-2 py-1 rounded-full text-sm font-medium" style={{ backgroundColor: '#FFC0C5', color: '#681219' }}>-2%</span>
         </div>
       </div>
     </div>
