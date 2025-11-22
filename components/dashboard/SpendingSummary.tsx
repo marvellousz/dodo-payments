@@ -34,7 +34,7 @@ export function SpendingSummary() {
             Spending Summary
           </h2>
         </div>
-        <button className="text-sm text-gray-600 border border-gray-200 rounded-lg px-3 py-1.5 flex items-center space-x-1">
+        <button className="text-sm text-gray-600 border border-gray-200 rounded-lg px-3 py-1.5 flex items-center space-x-1 cursor-pointer">
           <span>Last Week</span>
           <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -91,7 +91,7 @@ export function SpendingSummary() {
           <p className="text-xs text-gray-500">
             Your weekly spending limit is $2000.
           </p>
-          <button className="w-4 h-4 flex items-center justify-center ml-2 hover:opacity-70 transition-opacity">
+          <button className="w-4 h-4 flex items-center justify-center ml-2 hover:opacity-70 transition-opacity cursor-pointer">
             <Image
               src="/icon.svg"
               alt="Info"

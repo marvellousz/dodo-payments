@@ -18,7 +18,7 @@ export function CreditScore() {
               />
               <h2 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>Credit Score</h2>
             </div>
-        <button className="px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}>
+        <button className="px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer" style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}>
           Details
         </button>
       </div>
@@ -48,11 +48,11 @@ export function CreditScore() {
 
       {/* bar graph */}
       <div className="flex items-end space-x-0.5 h-6">
-        {Array.from({ length: 60 }).map((_, i) => (
+        {Array.from({ length: 36 }).map((_, i) => (
           <div
             key={i}
-            className={`flex-1 rounded-t h-full ${
-              i < 40 ? "bg-green-500" : "bg-gray-200"
+            className={`flex-1 h-full ${
+              i < 25 ? "bg-green-500" : "bg-gray-200"
             }`}
           />
         ))}

@@ -136,7 +136,7 @@ export default function QueueDemo() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full px-4 py-2.5 rounded-lg transition-colors"
+                  className="w-full px-4 py-2.5 rounded-lg transition-colors cursor-pointer"
                   style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#FFFFFF', backgroundColor: '#0E121B' }}
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1a1f2e'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0E121B'}
@@ -160,7 +160,7 @@ export default function QueueDemo() {
                     <button
                       key={msg}
                       onClick={() => handleQuickAdd(msg)}
-                      className="px-3 py-2 border border-gray-200 rounded-lg transition-colors text-left"
+                      className="px-3 py-2 border border-gray-200 rounded-lg transition-colors text-left cursor-pointer"
                       style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = '#F9FAFB';

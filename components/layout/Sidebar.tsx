@@ -38,7 +38,7 @@ export function Sidebar() {
               <div style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>Finance & Banking</div>
             </div>
           </div>
-          <button className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors border border-gray-200">
+          <button className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors border border-gray-200 cursor-pointer">
             <svg
               className="w-4 h-4"
               fill="none"
@@ -76,7 +76,7 @@ export function Sidebar() {
                 <button
                   key={item.name}
                   onClick={() => setActiveItem(item.name)}
-                  className={`w-full flex items-center justify-between space-x-3 px-3 py-2.5 rounded-lg transition-colors relative ${
+                  className={`w-full flex items-center justify-between space-x-3 px-3 py-2.5 rounded-lg transition-colors relative cursor-pointer ${
                     isActive
                       ? "bg-blue-50"
                       : "hover:bg-gray-50"
@@ -180,7 +180,7 @@ export function Sidebar() {
                 <button
                   key={item.name}
                   onClick={() => setActiveItem(item.name)}
-                  className={`w-full flex items-center justify-between space-x-3 px-3 py-2.5 rounded-lg transition-colors relative ${
+                  className={`w-full flex items-center justify-between space-x-3 px-3 py-2.5 rounded-lg transition-colors relative cursor-pointer ${
                     isActive
                       ? "bg-blue-50"
                       : "hover:bg-gray-50"

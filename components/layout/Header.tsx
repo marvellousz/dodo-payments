@@ -32,7 +32,7 @@ export function Header() {
       {/* actions */}
       <div className="flex items-center space-x-2 md:space-x-3 flex-shrink-0">
         {/* search */}
-        <button className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+        <button className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer">
           <Image
             src="/search.svg"
             alt="Search"
@@ -43,7 +43,7 @@ export function Header() {
         </button>
 
         {/* notifications */}
-        <button className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors relative">
+        <button className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-lg transition-colors relative cursor-pointer">
           <Image
             src="/bell.svg"
             alt="Notifications"
@@ -57,7 +57,7 @@ export function Header() {
         {/* move money button */}
         <button
           onClick={handleMoveMoney}
-          className="bg-blue-600 px-2 py-1 md:px-3 md:py-1.5 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-1 md:space-x-1.5"
+          className="bg-blue-600 px-2 py-1 md:px-3 md:py-1.5 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-1 md:space-x-1.5 cursor-pointer"
           style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#FFFFFF' }}
         >
           <span className="hidden sm:inline">Move Money</span>

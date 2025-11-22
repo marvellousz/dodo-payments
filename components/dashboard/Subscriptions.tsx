@@ -57,7 +57,7 @@ export function Subscriptions() {
         </div>
         <button
           onClick={handleSeeAll}
-          className="px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+          className="px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
           style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}
         >
           See All
@@ -93,7 +93,7 @@ export function Subscriptions() {
               <span style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 400, color: '#525866' }}>
                 For only $4.99 per month!
               </span>
-              <span className="underline" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}>
+              <span className="underline cursor-pointer" style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '0%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}>
                 Learn More
               </span>
             </div>
@@ -106,7 +106,7 @@ export function Subscriptions() {
         {subscriptions.map((sub, idx) => (
           <React.Fragment key={idx}>
             <div
-              className="flex items-center justify-between p-1.5 pb-3 hover:bg-gray-50 rounded-lg transition-colors"
+              className="flex items-center justify-between p-1.5 pb-3 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer"
             >
               <div className="flex items-center space-x-2 flex-1">
                 <div className="w-7 h-7 border-2 border-gray-200 rounded-full flex items-center justify-center overflow-hidden bg-white">
@@ -133,7 +133,7 @@ export function Subscriptions() {
                 >
                   {sub.status}
                 </span>
-                <button className="text-gray-400 hover:text-gray-600 flex flex-col items-center justify-center">
+                <button className="text-gray-400 hover:text-gray-600 flex flex-col items-center justify-center cursor-pointer">
                   <span className="w-1 h-1 bg-current rounded-full mb-0.5"></span>
                   <span className="w-1 h-1 bg-current rounded-full mb-0.5"></span>
                   <span className="w-1 h-1 bg-current rounded-full"></span>

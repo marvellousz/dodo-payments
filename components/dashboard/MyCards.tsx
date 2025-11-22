@@ -27,7 +27,7 @@ export function MyCards() {
         </div>
         <button
           onClick={handleAddCard}
-          className="flex items-center space-x-1.5 bg-white border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-50 transition-colors"
+          className="flex items-center space-x-1.5 bg-white border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-50 transition-colors cursor-pointer"
           style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}
         >
           <span>+</span>
@@ -107,12 +107,12 @@ export function MyCards() {
 
           {/* navigation arrows */}
           <div className="absolute bottom-4 right-4 flex items-center bg-white border border-gray-200 rounded-md overflow-hidden">
-            <button className="w-8 h-6 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors border-r border-gray-200">
+            <button className="w-8 h-6 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors border-r border-gray-200 cursor-pointer">
               <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <button className="w-8 h-6 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors">
+            <button className="w-8 h-6 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer">
               <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -130,7 +130,7 @@ export function MyCards() {
               <React.Fragment key={tab}>
                 <button
                   onClick={() => setSelectedTab(tab)}
-                  className="flex-1 py-2 transition-colors relative"
+                  className="flex-1 py-2 transition-colors relative cursor-pointer"
                   style={{ 
                     fontSize: '12px', 
                     lineHeight: '16px', 
@@ -190,7 +190,7 @@ export function MyCards() {
           </div>
 
           {/* arrow button */}
-          <button className="shrink-0 w-8 h-8 flex items-center justify-center border border-gray-200 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors">
+          <button className="shrink-0 w-8 h-8 flex items-center justify-center border border-gray-200 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

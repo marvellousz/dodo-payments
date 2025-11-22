@@ -23,7 +23,7 @@ export function Exchange() {
           />
           <h2 style={{ fontSize: '16px', lineHeight: '24px', letterSpacing: '-1.1%', fontFamily: 'Inter', fontWeight: 500, color: '#0E121B' }}>Exchange</h2>
         </div>
-        <button className="px-3 py-1.5 text-sm font-medium text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+        <button className="px-3 py-1.5 text-sm font-medium text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
           Currencies
         </button>
       </div>
@@ -41,7 +41,7 @@ export function Exchange() {
               height={24}
               className="shrink-0 rounded-full"
             />
-            <div className="text-sm font-semibold text-gray-900 flex items-center space-x-1">
+            <div className="text-sm font-semibold text-gray-900 flex items-center space-x-1 cursor-pointer">
               <span>USD</span>
               <div className="w-5 h-5 border border-gray-200 rounded-full flex items-center justify-center">
                 <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +77,7 @@ export function Exchange() {
               height={24}
               className="shrink-0 rounded-full"
             />
-            <div className="text-sm font-semibold text-gray-900 flex items-center space-x-1">
+            <div className="text-sm font-semibold text-gray-900 flex items-center space-x-1 cursor-pointer">
               <span>EUR</span>
               <div className="w-5 h-5 border border-gray-200 rounded-full flex items-center justify-center">
                 <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,7 +129,7 @@ export function Exchange() {
       {/* exchange button */}
       <button
         onClick={handleExchange}
-        className="w-full bg-white border border-gray-200 text-gray-900 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors flex items-center justify-center space-x-2 shrink-0"
+        className="w-full bg-white border border-gray-200 text-gray-900 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors flex items-center justify-center space-x-2 shrink-0 cursor-pointer"
       >
         <Image
           src="/exchangee.svg"

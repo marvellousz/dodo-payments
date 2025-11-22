@@ -64,7 +64,7 @@ export function RecentTransactions() {
         </div>
         <button
           onClick={handleSeeAll}
-          className="px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+          className="px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
           style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.6%', fontFamily: 'Inter', fontWeight: 500, color: '#525866' }}
         >
           See All
@@ -79,7 +79,7 @@ export function RecentTransactions() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className="flex-1 py-2 rounded-md transition-colors"
+              className="flex-1 py-2 rounded-md transition-colors cursor-pointer"
               style={{ 
                 fontSize: '12px', 
                 lineHeight: '16px', 
@@ -164,7 +164,7 @@ export function RecentTransactions() {
                 </div>
                 <div className="text-xs text-gray-400">{tx.date}</div>
               </div>
-              <button className="text-gray-400 hover:text-gray-600">
+              <button className="text-gray-400 hover:text-gray-600 cursor-pointer">
                 <Image
                   src="/arrow-right.svg"
                   alt="Arrow"
