@@ -1,4 +1,4 @@
-# Dodo Payments Assignment
+# dodo payments assignment
 
 Next.js app with three main components: Figma dashboard replication, API queue system with rate limiting UI, and backend echo API. Built for the React Intern assignment.
 
